@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedexpMobile.Pages.Patients">
+
+  <StackLayout>
+    <SearchBar Text="Buscar paciente"/>
+    <ListView x:Name="PatientsListView" BackgroundColor="White">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem Text="Expediente"
+                          Clicked="PatientExpedientClicked"
+                          CommandParameter="{Binding Patient}" />
+            </ViewCell.ContextActions>
+            <StackLayout Orientation="Horizontal" Padding="20,10,5,5" HorizontalOptions="Start">
+              <Image Source="{Binding Photo}" HeightRequest="30"/>
+
+              <Label Text="Paciente: " TextColor="Black" Font="10" FontAttributes="Bold"  />
+              <Label Text="{Binding Name}" TextColor="Black" Font="10" FontAttributes="Bold"/>
+
+              <Label Text="Edad: " TextColor="Black" Font="10" FontAttributes="Bold"  />
+              <Label Text="{Binding Age}" TextColor="Black" Font="10" FontAttributes="Bold"/>
+
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+
+
+</ContentPage>

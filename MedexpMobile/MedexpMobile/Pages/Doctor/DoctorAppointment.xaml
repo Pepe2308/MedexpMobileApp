@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedexpMobile.Pages.DoctorAppointment">
+  <StackLayout>
+  
+    <SearchBar Text="Buscar paciente"/>
+    <ListView x:Name="MedicinesListView" BackgroundColor="White">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem Text="Agregar cita"
+                        />
+              <MenuItem Text="Eliminar cita"
+                          />
+              <MenuItem Text="Ver expediente"
+                        Clicked="ViewPatientExpedient"  
+                        CommandParameter="{Binding Patient.Id}"/>
+            </ViewCell.ContextActions>
+            <StackLayout Orientation="Horizontal" Padding="20,0">
+              <Image Source="{Binding Patient.Photo}" HeightRequest="30"/>
+
+              <Label Text="Paciente: " TextColor="Black" Font="14" FontAttributes="Bold" />
+              <Label Text="{Binding Patient.Name}" TextColor="Black" Font="14" FontAttributes="Bold"/>
+              
+              <Label Text="{Binding AppointmentDate}" Font="12"/>
+
+              <Label Text="{Binding Hour}" Font="12"/>
+
+              <Label Text="Folio" Font="14" FontAttributes="Bold" />
+              <Label Text="{Binding Folio}" Font="12"/>
+
+              <Label Text="Asunto"  Font="14" FontAttributes="Bold" />
+              <Label Text="{Binding Type}" Font="12"/>
+              
+              <Label Text="Estatus"  Font="14" FontAttributes="Bold" />
+              <Label Text="{Binding Status}"  Font="14"/>
+              
+             
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+  
+</ContentPage>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedexpMobile.Pages.LoginPage">
+  
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:Key="standardFont" x:TypeArguments="Font">
+        <OnPlatform.iOS>12</OnPlatform.iOS>
+        <OnPlatform.Android>12</OnPlatform.Android>
+        <OnPlatform.WinPhone>18</OnPlatform.WinPhone>
+      </OnPlatform>
+
+         
+      <Style x:Key="LoginButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#007acc"/>
+        <Setter Property="TextColor" Value="#F0F7FF" />
+        <Setter Property="BorderRadius" Value="0"/>
+        <Setter Property="FontSize" Value="16" />
+      </Style>
+      <Style x:Key="CredentialsEntry" TargetType ="Entry">
+        <Setter Property="BackgroundColor" Value="#F0F7FF"/>
+        <Setter Property="TextColor" Value="#130606"/>
+      </Style>
+
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+
+  <StackLayout Spacing="0" Padding="10" BackgroundColor="#222">
+
+    <StackLayout Spacing="5" Padding="10">
+      <Image Source="logo.png"
+         HorizontalOptions="CenterAndExpand"
+         VerticalOptions="Start"/>
+      <ActivityIndicator x:Name="waitActivityIndicator"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"/>
+    </StackLayout>
+
+    <StackLayout Spacing="20" Padding="25" HorizontalOptions="Center" WidthRequest="240">
+      <Entry x:Name="Username"
+         Placeholder="Nombre de Usuario"
+         Style="{StaticResource CredentialsEntry}"/>
+      <Entry x:Name="Password"
+         Placeholder="Contraseña"
+         IsPassword="True"
+         Style="{StaticResource CredentialsEntry}" />
+      <Button Text="¿Olvidaste tu contraseña?"
+          TextColor="#3399CC"
+          Clicked="ForgetPasswordMethod"
+          BackgroundColor="Transparent"
+          FontSize="12"
+          HorizontalOptions="Start"/>
+    </StackLayout>
+    <StackLayout Spacing="25" Padding="0">
+      <Button Text="Iniciar Sesión"
+         HorizontalOptions="Center"
+         Clicked="SignInPressed"
+         HeightRequest="40"
+         Style="{StaticResource LoginButton}" />
+    </StackLayout>
+  </StackLayout>
+  
+</ContentPage>
